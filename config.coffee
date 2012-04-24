@@ -8,7 +8,7 @@ module.exports =
 		port: 6697
 		channel: '#testnet'
 		ssl: yes
-  ownerNick: 'jasper'
+	ownerNick: 'jasper'
 	html:
 		enabled: yes
 		path: '/tmp/tadpole/'
