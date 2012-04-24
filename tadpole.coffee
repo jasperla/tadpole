@@ -6,26 +6,24 @@
 irc 		= require 'irc'
 logging = require './lib/log'
 date 		= require './lib/date'
+config	= require './config'
 
-DEBUG = no
-CHANNEL = '#testnet'
-
-client = new irc.Client 'irc.bsdfrog.org', 'tadpole',
-  userName: 'tadpole'
-  realName: 'http://github.com/jasperla/tadpole/'
-  channels: [CHANNEL]
-  secure: true
-  port: 6697
+client = new irc.Client config.network.server, config.network.nickName,
+  userName: config.network.userName
+  realName: config.network.realName
+  channels: [config.network.channel]
+  secure: config.network.ssl
+  port: config.network.port
   certExpired: true
 
 client.addListener 'pm', (from, message) ->
 	if from is 'jasper'
 		console.log "[#{date.format_date()}]: /msg from jasper: #{message}"
 	else
-		client.say CHANNEL, "#{from} whispered to me: \"#{message}\"!"
+		client.say config.network.channel, "#{from} whispered to me: \"#{message}\"!"
 
-client.addListener "message#{CHANNEL}", (from, message) ->
-	console.log "#{from} said: #{message}" if DEBUG
+client.addListener "message#{config.network.channel}", (from, message) ->
+	console.log "#{from} said: #{message}" if config.debug
 	uri = contains_uri message
 	if uri
 		logging.log_uri uri
