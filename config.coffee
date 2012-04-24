@@ -8,3 +8,4 @@ module.exports =
 		port: 6697
 		channel: '#testnet'
 		ssl: yes
+  ownerNick: 'jasper'

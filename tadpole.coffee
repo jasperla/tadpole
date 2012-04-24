@@ -13,12 +13,12 @@ client = new irc.Client config.network.server, config.network.nickName,
   realName: config.network.realName
   channels: [config.network.channel]
   secure: config.network.ssl
-  port: config.network.port
+  port: config.network.port || 6667
   certExpired: true
 
 client.addListener 'pm', (from, message) ->
-	if from is 'jasper'
-		console.log "[#{date.format_date()}]: /msg from jasper: #{message}"
+	if from is config.ownerNick
+		console.log "[#{date.format_date()}]: /msg from config.ownerNick: #{message}"
 	else
 		client.say config.network.channel, "#{from} whispered to me: \"#{message}\"!"
 
