@@ -26,7 +26,7 @@ client.addListener "message#{config.network.channel}", (from, message) ->
 	console.log "#{from} said: #{message}" if config.debug
 	uri = contains_uri message
 	if uri
-		logging.log_uri uri
+		logging.log_uri uri, message
   
 # Only get full URIs, this prevents stuff from 'look at google.com' from
 # being picked up.
