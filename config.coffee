@@ -1,7 +1,7 @@
 module.exports =
 	DEBUG: no
 	network:
-		server: 'irc.somenet.org'
+		server: process.argv[2] || 'irc.somenet.org'
 		nickName: 'tadpole'
 		userName: 'tadpole'
 		realName: 'http://github.com/jasperla/tadpole/'
