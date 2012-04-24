@@ -9,3 +9,6 @@ module.exports =
 		channel: '#testnet'
 		ssl: yes
   ownerNick: 'jasper'
+	html:
+		enabled: yes
+		path: '/tmp/tadpole/'

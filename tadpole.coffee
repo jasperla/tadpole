@@ -4,7 +4,7 @@
 # URIs to the console. Later we'll feed this into a redis datastore.
 
 irc 		= require 'irc'
-logging = require './lib/log'
+logging	= require './lib/log'
 date 		= require './lib/date'
 config	= require './config'
 
