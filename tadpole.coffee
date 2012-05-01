@@ -19,7 +19,7 @@ client = new irc.Client config.network.server, config.network.nickName,
 
 client.addListener 'pm', (from, message) ->
 	if from is config.ownerNick
-                util.log "/msg from config.ownerNick: #{message}"
+                util.log "/msg from #{config.ownerNick}: #{message}"
 	else
 		client.say config.network.channel, "#{from} whispered to me: \"#{message}\"!"
 
